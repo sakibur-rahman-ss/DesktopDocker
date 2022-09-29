@@ -8,4 +8,4 @@ if [ $DesktopContainer -gt 1 ]
 then
   docker rm stgdesktop1
 fi
-docker run -d --name stgdesktop1 -p 3000:3000 stgdesktop
+docker run -d -it --name stgdesktop1 -p 3000:3000 stgdesktop
