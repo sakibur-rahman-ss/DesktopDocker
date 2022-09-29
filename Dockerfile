@@ -12,4 +12,4 @@ RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' helpers/apis.js
 RUN npm ci --legacy-peer-deps
 RUN npm run build
 EXPOSE 3000
-ENTRYPOINT npm run start
+ENTRYPOINT NODE_ENV=production forever start --minUptime 1000 --spinSleepTime 5000 -a -l forever.log -o out.log -e err.log --loglevel debug server/index.js
