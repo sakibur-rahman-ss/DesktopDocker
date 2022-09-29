@@ -9,3 +9,5 @@ WORKDIR /set-desktop
 RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' apis/base.js
 RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' helpers/apis.js
 RUN npm ci --legacy-peer-deps
+EXPOSE 3000
+CMD npm run start
