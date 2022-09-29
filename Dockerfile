@@ -11,4 +11,4 @@ RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' helpers/apis.js
 RUN npm ci --legacy-peer-deps
 RUN npm run build
 EXPOSE 3000
-CMD HOST='0.0.0.0:3000' node server/index.js
+CMD HOST=0.0.0.0 node server/index.js
