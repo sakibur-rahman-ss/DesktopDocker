@@ -3,6 +3,7 @@ set -x
 git clone git@github.com:setschedule/set-desktop.git
 docker build -t stgdesktop .
 docker ps --filter "status=exited" | cut -d' ' -f1 | grep -v CONTAINER | xargs -n1 docker rm
+docker image prune --force
 DesktopContainer=$(docker ps --all --filter "name=stgdesktop1" | wc -l)
 if [ $DesktopContainer -gt 1 ]
 then
