@@ -12,4 +12,4 @@ RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' helpers/apis.js
 RUN npm ci --legacy-peer-deps
 RUN npm run build
 EXPOSE 3000
-ENTRYPOINT node server/index.js
+ENTRYPOINT HOST=0.0.0.0 PORT=3000 node server/index.js
