@@ -1,6 +1,9 @@
 #!/bin/bash
 set -x
 git clone git@github.com:setschedule/set-desktop.git
+git branch
+git checkout $BranchName
+git pull
 docker build -t stgdesktop .
 docker ps --filter "status=exited" | cut -d' ' -f1 | grep -v CONTAINER | xargs -n1 docker rm
 docker image prune --force
