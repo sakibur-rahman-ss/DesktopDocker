@@ -1,6 +1,10 @@
 #!/bin/bash
 set -x
-git clone git@github.com:setschedule/set-desktop.git
+if [ ! -d set-desktop ]
+then
+  git clone git@github.com:setschedule/set-desktop.git
+fi
+cd set-desktop
 git branch
 git checkout $BranchName
 git pull
