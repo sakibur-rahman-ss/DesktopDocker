@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt update
-RUN apt-get -y install curl
+RUN apt-get -y install curl build-essential
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 COPY set-desktop /set-desktop
