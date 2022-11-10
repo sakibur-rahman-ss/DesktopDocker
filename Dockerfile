@@ -7,6 +7,7 @@ COPY set-desktop /set-desktop
 WORKDIR /set-desktop
 RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' apis/base.js
 RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' helpers/apis.js
+RUN echo 172.17.0.2 dockerapi.setschedule.com >> /etc/hosts
 RUN npm ci
 RUN npm run build
 EXPOSE 3000
