@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt update
-RUN apt-get -y install curl gpg
-RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get -y install curl
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get install -y nodejs
 COPY set-desktop /set-desktop
 WORKDIR /set-desktop
