@@ -5,6 +5,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs
 COPY set-desktop /set-desktop
 WORKDIR /set-desktop
+RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' apis/base.js
+RUN sed -i 's/dev.setschedule.com/dockerapi.setschedule.com/g' helpers/apis.js
 RUN npm ci
 RUN npm run build
 EXPOSE 3000
