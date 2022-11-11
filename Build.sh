@@ -10,8 +10,14 @@ git checkout $BranchName
 git pull
 cd ..
 docker build -t stgdesktop .
-docker ps --filter "status=exited" | cut -d' ' -f1 | grep -v CONTAINER | xargs -n1 docker rm
+ExitedContainer=$(docker ps --filter "status=exited" | wc -l)
+if [ $ExitedContainer -gt 1 ]
+then
+  docker ps --filter "status=exited" | cut -d' ' -f1 | grep -v CONTAINER | xargs -n1 docker rm
+fi
+
 docker image prune --force
+
 DesktopContainer=$(docker ps --all --filter "name=stgdesktop1" | wc -l)
 if [ $DesktopContainer -gt 1 ]
 then
